@@ -26,22 +26,11 @@ class BinanceController extends Controller
             return $balances[$symbol];
         return $balances;
     }
-    public function calcRsi(){
-        $api=$this->api;
-        $api->kline(["BTCUSDT"], "5m", function($api, $symbol, $chart) {
-            //echo "{$symbol} ({$interval}) candlestick update\n";
-            $interval = $chart->i;
-            $tick = $chart->t;
-            $open = $chart->o;
-            $high = $chart->h;
-            $low = $chart->l;
-            $close = $chart->c;
-            $volume = $chart->q; // +trades buyVolume assetVolume makerVolume
-            echo "{$symbol} price: {$close}\t volume: {$volume}\n";
-        });
+    public function calcRsi($symbol){
+
     }
     public function Demo(){
-        return $this->calcRsi();
+        return $this->calcRsi('BTCUSDT');
     }
 
 
