@@ -8,3 +8,11 @@ Kurulum:
 git clone https://github.com/burakerenel/robinhood
 cd robinhood && composer install
 ```
+
+.env.example dosyasının kopyalayarak .env yapın.
+
+Daha sonra terminalden alağıdaki komutu girin.
+
+```sh
+php artisan key:generate
+```

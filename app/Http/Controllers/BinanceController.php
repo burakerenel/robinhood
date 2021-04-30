@@ -29,8 +29,8 @@ class BinanceController extends Controller
     public function calcRsi($symbol){
 
     }
-    public function Demo(){ 
-        return $this->calcRsi('BTCUSDT');
+    public function Demo(){
+
     }
 
 
