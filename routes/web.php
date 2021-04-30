@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BinanceController;
+use App\Http\Controllers\RobinReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +13,5 @@ use App\Http\Controllers\BinanceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [RobinReportController::class, 'dashboard'])->name('dashboard');

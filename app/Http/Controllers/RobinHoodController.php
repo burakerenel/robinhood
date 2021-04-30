@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BinanceController;
 use Web64\Colors\Facades\Colors;
+use App\Models\RobinLog;
 
 
 class RobinHoodController extends Controller
