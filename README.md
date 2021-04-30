@@ -16,3 +16,19 @@ Daha sonra terminalden alağıdaki komutu girin.
 ```sh
 php artisan key:generate
 ```
+
+
+
+
+
+# Çalıştırmak İçin
+
+```sh
+php artisan robin:start
+```
+
+
+
+
+![Screenshot](ss.png)
+
