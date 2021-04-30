@@ -29,9 +29,5 @@ class BinanceController extends Controller
             return $balances[$symbol];
         return $balances;
     }
-    public function Demo(){
-        return $this->getBalance();
-    }
-
 
 }
