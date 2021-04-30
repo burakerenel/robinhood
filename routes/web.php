@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getPrice', [BinanceController::class, 'Demo']);
+Route::get('/getPrice', [\App\Http\Controllers\TradingViewController::class, 'getRSI']);

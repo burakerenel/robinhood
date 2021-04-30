@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Binance;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\TradingViewController;
 
 
 
@@ -33,8 +30,7 @@ class BinanceController extends Controller
         return $balances;
     }
     public function Demo(){
-        $tradingViewData = new TradingViewController();
-        return $tradingViewData->getTradingViewData();
+        return $this->getBalance();
     }
 
 

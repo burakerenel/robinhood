@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+
 class TradingViewController extends Controller
 {
     public function getTradingViewData(){
@@ -107,6 +108,9 @@ class TradingViewController extends Controller
                     80 => 'Pivot.M.Demark.R1|15',
                 ),
         );
-        return Http::withBody(json_encode($request_json,true),'application/json')->withOptions(['verify' => false])->get('https://scanner.tradingview.com/crypto/scan');
+        return json_decode(Http::withBody(json_encode($request_json,true),'application/json')->withOptions(['verify' => false])->get('https://scanner.tradingview.com/crypto/scan'),1);
+    }
+    public function getRSI(){
+        return $this->getTradingViewData()['data'][0]['d'][3];
     }
 }
