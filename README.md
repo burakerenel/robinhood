@@ -10,11 +10,13 @@ cd robinhood && composer install
 ```
 
 .env.example dosyasının kopyalayarak .env yapın.
+API bilgilerini ve mysql bilgilerini girin.
 
 Daha sonra terminalden alağıdaki komutu girin.
 
 ```sh
 php artisan key:generate
+php artisan migrate
 ```
 
 
