@@ -13,16 +13,27 @@ class RobinHoodController extends Controller
     public function start(){
 
         while(true){
+            $lastOperation = RobinLog::orderBy('created_at','desc')->first();
+
             $binance = new BinanceController;
             $tradingView = new TradingViewController;
             $rsi = floatval($tradingView->getRSI());
             $price = $binance->getPrice('BTCUSDT');
 
+
             if($rsi >= 50){
-                Colors::yellow("SELLING POSITION -> BTCUSDT: ".$price." RSI:".$rsi);
+                if($lastOperation->operation=='buy'){
+                    Colors::yellow("SELLING POSITION -> BTCUSDT: ".$price." RSI:".$rsi);
+                }
+                else
+                    Colors::magenta("WAITING FOR BUY BUYING -> BTCUSDT: ".$price." RSI:".$rsi);
             }
             elseif($rsi <= 25){
-                Colors::green("BUYING POSITION -> BTCUSDT: ".$price." RSI:".$rsi);
+                if($lastOperation->operation=='sell'){
+                    Colors::green("BUYING POSITION -> BTCUSDT: ".$price." RSI:".$rsi);
+                }
+                else
+                    Colors::magenta("WAITING FOR BUY SELLING -> BTCUSDT: ".$price." RSI:".$rsi);
             }
             else{
                 Colors::light_blue("HOLDING POSITION -> BTCUSDT: ".$price." RSI:".$rsi);
